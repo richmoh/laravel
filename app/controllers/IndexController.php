@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http;
 
 class IndexController extends BaseController {
 
@@ -23,7 +24,15 @@ class IndexController extends BaseController {
     
 	public function signup()
 	{
-        $this->layout->content = View::make('signup');
+        $request = Request::instance();
+        
+        var_dump($request);
+        
+        $view = View::make('signup');
+        
+        $view->user = new User();
+        
+        $this->layout->content = $view;
 	}
 
 }
