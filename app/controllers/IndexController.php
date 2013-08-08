@@ -20,5 +20,10 @@ class IndexController extends BaseController {
 	{
         $this->layout->content = View::make('index');
 	}
+    
+	public function signup()
+	{
+        $this->layout->content = View::make('signup');
+	}
 
 }

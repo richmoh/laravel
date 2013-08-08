@@ -17,3 +17,4 @@
 //});
 
 Route::get('/', 'IndexController@index'); //Thats more like it
+Route::get('signup', 'IndexController@signup'); 
