@@ -8,19 +8,19 @@
         <div class="control-group">
             <label class="control-label" for="inputEmail">Firstname</label>
             <div class="controls">
-                <?php echo Form::text('firstname'); ?>
+                <?php echo Form::text('firstname', Input::get('firstname')); ?>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="inputPassword">Surname</label>
             <div class="controls">
-                <?php echo Form::text('surname'); ?>
+                <?php echo Form::text('surname', Input::get('surname')); ?>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="inputPassword">Email</label>
             <div class="controls">
-                <?php echo Form::text('email'); ?>
+                <?php echo Form::text('email', Input::get('email')); ?>
             </div>
         </div>
         <div class="control-group">

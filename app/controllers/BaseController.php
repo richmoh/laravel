@@ -14,5 +14,54 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
+    
+    protected function validate($validator)
+    {
+        if ($validator->fails())
+        {
+           $messages = $validator->messages();
 
+           $this->display_message('errors', $messages->all());
+           
+           return false;
+        }
+    }
+    
+    protected function display_message($type, $messages)
+    {
+        $html = '
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Not so fast!</strong>';
+        
+        switch ($type)
+        {
+            case 'errors':
+                
+                $html = '<div class="alert alert-error">'.$html;
+                
+                if(count($messages) == 0)
+                {
+                    $html .= current($messages);
+                    
+                }else
+                {
+                    $html .= '<ul>';
+                    
+                    foreach ($messages as $message)
+                    {
+                        $html .= '<li>';
+                        $html .= $message;
+                        $html .= '</li>';
+                    }
+                    
+                    $html .= '</ul>';
+                }
+                
+                break;
+        }
+        
+        $html .= '</div>';
+        
+        $this->layout->messages = $html;
+    }
 }
