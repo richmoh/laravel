@@ -25,6 +25,19 @@ class IndexController extends BaseController
         $this->layout->content = View::make('index');
     }
 
+    private function hashPassword(&$input)
+    {
+        $password = Input::get('password');
+                    
+        $input['password'] = Hash::make($password);
+        
+        //This will be used for checking later
+//        if (Hash::check($password, $input['password']))
+//        {
+//            // The passwords match...
+//        }
+    }
+    
     public function signup()
     {
         $view = View::make('signup');
@@ -35,10 +48,10 @@ class IndexController extends BaseController
         {
             $validator = Validator::make(
                             $input, array(
-                        'firstname' => 'required',
-                        'surname' => 'required',
-                        'email' => 'required',
-                        'password' => 'required',
+                                'firstname' => 'required',
+                                'surname' => 'required',
+                                'email' => 'required',
+                                'password' => 'required',
                             )
             );
             
@@ -46,13 +59,25 @@ class IndexController extends BaseController
             
             if($valid)
             {
-                //Redirect somewhere
+                try
+                {
+                    //Hash it
+                    $this->hashPassword($input);
+                    
+                    //Save
+                    $user = User::create($input);
+                    
+                    //Redirect somewhere
+                
+                }catch(Exception $e)
+                {
+                    $this->display_message('errors', array('Email is already being used by another user'));
+                }
+                
             }
             
             $view->input = $input;
         }
-
-        
 
         $view->user = new User();
 

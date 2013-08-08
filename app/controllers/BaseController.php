@@ -25,19 +25,19 @@ class BaseController extends Controller {
            
            return false;
         }
+        
+        return true;
     }
     
     protected function display_message($type, $messages)
     {
-        $html = '
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Not so fast!</strong>';
+        $html = '<button type="button" class="close" data-dismiss="alert">&times;</button>';
         
         switch ($type)
         {
             case 'errors':
                 
-                $html = '<div class="alert alert-error">'.$html;
+                $html = '<div class="alert alert-error"><strong>Not so fast!</strong>'.$html;
                 
                 if(count($messages) == 1)
                 {

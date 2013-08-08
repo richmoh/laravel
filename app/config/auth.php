@@ -63,5 +63,7 @@ return array(
 		'expire' => 60,
 
 	),
+    
+    'password_salt'=>'ZyaNaI64OJ0PjX9IWveIaQOPsTv4FoV289Yh1ux3'
 
 );
