@@ -25,7 +25,7 @@ class IndexController extends BaseController {
 	public function signup()
 	{
         $request = Request::instance();
-        
+
         var_dump($request);
         
         $view = View::make('signup');
