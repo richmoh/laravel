@@ -39,9 +39,9 @@ class BaseController extends Controller {
                 
                 $html = '<div class="alert alert-error">'.$html;
                 
-                if(count($messages) == 0)
+                if(count($messages) == 1)
                 {
-                    $html .= current($messages);
+                    $html .= ' ' . current($messages);
                     
                 }else
                 {
