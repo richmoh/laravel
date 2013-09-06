@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="js/angular.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
